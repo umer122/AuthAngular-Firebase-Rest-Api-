@@ -1,0 +1,14 @@
+<section class="main-container" >
+    <nav>
+        <ul>
+            <li routerLink="/" >Home</li>
+            <li routerLink="/about"  >About</li>
+            <li routerLink="/service"  >Service</li>
+            <li  routerLink="/nav" >Nav</li>
+            <li routerLink="/contact"  >Contact</li>
+            <li  *ngIf="!isLoggedIn" routerLink="/auth/login"  >Login</li>
+            <!-- <li routerLink="/auth/signup"  >sign up</li> -->
+            <li *ngIf="isLoggedIn"  (click)="signOutCLick()" >sign Out</li>
+        </ul>
+    </nav>
+</section>

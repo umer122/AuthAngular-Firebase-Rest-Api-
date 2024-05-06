@@ -1,0 +1,18 @@
+<section class="w-12 flex justify-content-center ">
+    <div class="w-6 m-auto surface-200	 box-shadow-2 p-3 ">
+        <form [formGroup]="form">
+
+            <input pInputText class="my-3 p-2 w-full" placeholder="Enter Email" formControlName="email">
+            <input pInputText class="my-3 p-2 w-full" placeholder="Enter Password" formControlName="password">
+
+            <div class="flex justify-content-end">
+                <span>No Account</span>
+                <span routerLink="/auth/login" class="cursor-pointer text-blue-500">
+                    Login
+                </span>
+            </div>
+            <button pButton class="p-2 p-button-success" [raised]="true" label="Signup" (click)="signUp()"></button>
+        </form>
+
+    </div>
+</section>

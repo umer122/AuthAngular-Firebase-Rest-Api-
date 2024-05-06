@@ -1,0 +1,16 @@
+<section class="w-12 flex justify-content-center ">
+    <div class="w-6 m-auto surface-200	 box-shadow-2 p-3 ">
+        <form [formGroup]="form">
+            <div>
+                <input class="my-2 p-2 w-full" pInputText type="text" formControlName="email">
+                <input class="p-2 w-full" pInputText type="text" formControlName="password">
+
+            </div>
+            <div class="flex justify-content-end" >
+            <span>Create New Account</span><span routerLink="/auth/signup" class="cursor-pointer text-blue-500">Click Here</span>
+
+            </div>
+            <button class="mt-2 p-2" pButton label="Login" (click)="submit()"  ></button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "authenticationangular-11": {
+      "hosting": {
+        "demo": [
+          "authenticationangular-11"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "authenticationangular-11"
+  }
+}
