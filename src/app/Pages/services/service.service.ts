@@ -11,6 +11,8 @@ import { User } from "../../AppModel/user.modal";
 })
 export class ServiceService {
 
+ private tokenExpirationTimming:any
+
   user = new BehaviorSubject<User | any>(null);
 
   api_url = config.API_URL
@@ -59,7 +61,10 @@ export class ServiceService {
       }
       const loggedInUser = new User(userData.email, userData.id, userData._token, new Date(userData._expireToken));
       if (loggedInUser.Token) {
-        this.user.next(loggedInUser)
+        this.user.next(loggedInUser);
+        const userautoSignOut=new Date(userData._expireToken).getTime()-new Date().getTime()
+        this.autoSignOut(userautoSignOut*1000)
+
 
       }
 
@@ -72,12 +77,22 @@ export class ServiceService {
     const user = new User(email, userId, token, expireDate);
     console.log("User data", user);
     this.user.next(user);
+    this.autoSignOut(expireIn*1000)
     localStorage.setItem('UserData', JSON.stringify(user))
   }
 
   signOut(){
     this.user.next(null);
-    localStorage.removeItem('UserData')
+    localStorage.removeItem('UserData');
+    if(this.tokenExpirationTimming){
+      clearTimeout(this.tokenExpirationTimming)
+    }
+    this.tokenExpirationTimming=null
   }
 
+  autoSignOut(expirationDuration:number){
+   this.tokenExpirationTimming= setTimeout(()=>{
+      this.signOut()
+    },3000)
+  }
 }
