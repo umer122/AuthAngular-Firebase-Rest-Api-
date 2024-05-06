@@ -93,6 +93,6 @@ export class ServiceService {
   autoSignOut(expirationDuration:number){
    this.tokenExpirationTimming= setTimeout(()=>{
       this.signOut()
-    },3000)
+    },expirationDuration)
   }
 }

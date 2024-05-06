@@ -42,7 +42,7 @@ export class LoginComponent {
     authObservable.subscribe({
       next: (res: any) => {
         console.log("Success",res),
-        this.route.navigate(['/'])
+        this.route.navigate(['/home'])
       },
       error: (err) => {
         console.log("Show Error",err)

@@ -24,6 +24,6 @@ export class HeaderComponent {
 
   signOutCLick(){
     this.serviceService.signOut();
-    this.route.navigate(['/auth/login'])
+    this.route.navigate(['/login'])
   }
 }
